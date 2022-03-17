@@ -1,8 +1,13 @@
-# app/__init.py__
+# app/__init__.py
 # pylint: disable=missing-docstring
 
-from flask import Flask
-from flask_restx import Api
+from flask import Flask # Cette ligne existe déjà
+from flask_restx import Api # Cette ligne existe déjà
+
+from .db import tweet_repository
+from .models import Tweet
+tweet_repository.add(Tweet("a first tweet"))
+tweet_repository.add(Tweet("a second tweet"))
 
 def create_app():
     app = Flask(__name__)
